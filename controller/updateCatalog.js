@@ -9,13 +9,14 @@ const updateCatalog = async (req, res) => {
         msg: 'Semua field harus diisi!'
     });
 
-    const newCatalog = await Catalog.findOneAndUpdate({ jenisPakaian }, { harga: hargaBaru, stok: stokBaru }, { new: true });
-    if(!newCatalog) return res.status(404).json({
-        success: false,
-        msg: `Produk ${jenisPakaian} tidak ada`
-    });
-
+    
     try {
+        const newCatalog = await Catalog.findOneAndUpdate({ jenisPakaian }, { harga: hargaBaru, stok: stokBaru }, { new: true });
+        if(!newCatalog) return res.status(404).json({
+            success: false,
+            msg: `Produk ${jenisPakaian} tidak ada`
+        });
+        
         return res.status(200).json({
             success: true,
             msg: `Produk ${jenisPakaian} berhasil diupdate`,

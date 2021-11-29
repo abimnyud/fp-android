@@ -3,7 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-// Body Parser
+// BODY PARSER
 app.use(express.json());
 
 mongoose.connect(process.env.MONGODB_URI)
