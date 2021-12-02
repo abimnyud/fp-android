@@ -1,6 +1,6 @@
 const Catalog = require('../models/catalog');
 
-const showCatalogs = async (req, res) => {
+const showAllCatalogs = async (req, res) => {
     catalogCheck = await Catalog.find();
     if (!catalogCheck) return res.status(404).json({
         success: false, 
@@ -21,4 +21,4 @@ const showCatalogs = async (req, res) => {
     }
 };
 
-module.exports = showCatalogs;
+module.exports = showAllCatalogs;

@@ -1,24 +1,24 @@
-import { Router } from 'express';
-const router = Router();
+const express = require('express');
+const router = express.Router();
 
 // Add Catalog Path
-import addCatalog from '../controller/addCatalog';
+const addCatalog = require('../controller/addCatalog');
 router.post('/addCatalog', addCatalog);
 
 // Show All Catalogs Path
-import showCatalogs from '../controller/showCatalogs';
-router.get('/showCatalogs', showCatalogs);
+const showAllCatalogs = require('../controller/showAllCatalogs');
+router.get('/showAllCatalogs', showAllCatalogs);
 
 // Show Catalog Path
-import showCatalog from '../controller/showCatalog';
+const showCatalog = require('../controller/showCatalog');
 router.get('/showCatalog/:jenisPakaian', showCatalog);
 
 // Update Catalog Path
-import updateCatalog from '../controller/updateCatalog';
+const updateCatalog = require('../controller/updateCatalog');
 router.put('/updateCatalog', updateCatalog);
 
 // Delete Catalog Path
-import deleteCatalog from '../controller/deleteCatalog';
+const deleteCatalog = require('../controller/deleteCatalog');
 router.delete('/deleteCatalog', deleteCatalog);
 
-export default router;
+module.exports = router;
