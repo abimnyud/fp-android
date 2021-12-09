@@ -2,8 +2,9 @@
  Final Backend Project KSM Android 2021
 
  CRUD & Authentication
+ Using Mongoose, Express, Joi, dotenv, and JWT
 
-##  CRUD
+##  CRUD INPUT EXAMPLE
 ### ADD CATALOG (BODY)
 ```
 {
@@ -19,6 +20,7 @@ jenisPakaian:Kemeja
 bahanPakaian:Flanel
 ```
 ### UPDATE CATALOG (BODY & PARAMS)
+BODY
 ```
 {
     "jenisPakaian": "Kemeja",
@@ -27,7 +29,7 @@ bahanPakaian:Flanel
     "stok": 100
 }
 ```
-AND
+AND PARAMS
 ```
 stokBaru:50
 ```
