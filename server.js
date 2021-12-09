@@ -14,9 +14,13 @@ mongoose.connect(process.env.MONGODB_URI)
     res.send('Hello World!');
 }); */
 
-// ROUTES
-const allRoutes = require('./routes/allRoutes');
-app.use('/api', allRoutes);
+// CATALOGS ROUTES
+const catalogsRoutes = require('./routes/catalogsRoutes');
+app.use('/api', catalogsRoutes);
+
+// AUTH ROUTES
+const auth = require('./routes/auth');
+app.use('/auth', auth);
 
 // LISTENING
 const PORT = 3000;

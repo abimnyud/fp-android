@@ -26,10 +26,7 @@ const uploadCatalog = async (req, res) => {
     });
     
     try {
-        upload
-            .save()
-            .then((result) => console.log(result))
-            .catch((err) => console.log(err));
+        await upload.save()
         res.status(201).json({ 
             success: true,
             msg: `Katalog ${jenisPakaian} berhasil ditambahkan` 

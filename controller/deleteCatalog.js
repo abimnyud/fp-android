@@ -12,7 +12,7 @@ const deleteCatalog = async (req, res) => {
         await Catalog.findOneAndDelete({ jenisPakaian: jenisPakaian, bahanPakaian: bahanPakaian });
         return res.status(200).json({
             success: true,
-            msg: `Produk ${jenisPakaian} berhasil dihapus`
+            msg: `Produk ${jenisPakaian} dengan bahan ${bahanPakaian} berhasil dihapus`
         });
         
     } catch (error) {
