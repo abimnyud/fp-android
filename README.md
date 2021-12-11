@@ -29,10 +29,19 @@ BODY
     "stok": 100
 }
 ```
-AND PARAMS
+and PARAMS
 ```
 hargaBaru:200000
 stokBaru:50
+```
+### REGISTER ADMIN (BODY)
+Needs .env ADMIN_TOKEN
+```
+{
+    "name": "Admin Pertama",
+    "email": "admin1@abimanyu.co",
+    "password": "admin123456"
+}
 ```
 ### LOGIN ADMIN (BODY)
 ```

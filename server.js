@@ -10,10 +10,6 @@ mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('Connected to MongoDB!'))
     .catch((err) => console.log(`DB Connection Error : ${err.message}`));
 
-/* app.get('/', (req, res) => {
-    res.send('Hello World!');
-}); */
-
 // CATALOGS ROUTES
 const catalogsRoutes = require('./routes/catalogsRoutes');
 app.use('/api', catalogsRoutes);
