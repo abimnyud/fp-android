@@ -2,7 +2,7 @@ const Catalog = require('../models/catalog');
 
 const showCatalog = async (req, res) => {
     const { jenisPakaian } = req.params;
-    catalogCheck = await Catalog.findOne({ jenisPakaian: jenisPakaian });
+    catalogCheck = await Catalog.findOne({ jenisPakaian });
 
     if (!catalogCheck) return res.status(404).json({
         success: false,

@@ -1,13 +1,18 @@
 const express = require('express');
 const router = express.Router();
+const { verifyAdmin } = require('../controller/verifyToken')
 
-// Register New Admin
-const register = require('../controller/admin/adminRegister');
-router.post('/admin/register', register);
-
-// Login Admin
+// Login admin
 const login = require('../controller/admin/adminLogin');
 router.post('/admin/login', login);
+
+// Register new admin
+const add = require('../controller/admin/addNewAdmin');
+router.post('/admin/add', verifyAdmin, add);
+
+// Delete admin
+const deleteAdmin = require('../controller/admin/deleteAdmin');
+router.delete('/admin/delete/:id', verifyAdmin, deleteAdmin);
 
 // Register New User
 const userRegister = require('../controller/user/userRegister');

@@ -2,7 +2,7 @@
  Final Backend Project KSM Android 2021
 
  CRUD & Authentication
- Using Mongoose, Express, Joi, dotenv, and JWT
+ using mongoose, nodemon, rxpress, bcrypt, joi, dotenv, and jwt
 
 ##  CRUD INPUT EXAMPLE
 ### ADD CATALOG (BODY)
