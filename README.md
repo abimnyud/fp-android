@@ -16,17 +16,13 @@
 ```
 ### DELETE CATALOG (QUERY)
 ```
-jenisPakaian:Kemeja
-bahanPakaian:Flanel
+id: *objectid*
 ```
 ### UPDATE CATALOG (BODY & QUERY)
 BODY
 ```
 {
-    "jenisPakaian": "Kemeja",
-    "bahanPakaian": "Flanel",
-    "harga": 150000,
-    "stok": 100
+    "id": "*objectid*",
 }
 ```
 and QUERY
