@@ -17,7 +17,7 @@ const adminSchema = mongoose.Schema({
         max: 1024,
         min: 8
     },
-    date: {
+    createdAt: {
         type: Date,
         default: Date.now
     }

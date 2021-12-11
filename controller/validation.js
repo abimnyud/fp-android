@@ -1,11 +1,14 @@
 const Joi = require('joi');
 
-const registerValidation = data => {
+exports.registerValidation = data => {
     // Schema for register validation
     const schema = Joi.object({
-        name: Joi.string()
+        name: Joi.string().pattern(/^[a-zA-Z ]*$/)
             .min(5)
-            .required(),
+            .required()
+            .messages({
+                "string.pattern.base": `"name" must be alphabetical`
+            }),
         email: Joi.string()
             .email()
             .required(),
@@ -19,7 +22,7 @@ const registerValidation = data => {
     return schema.validate(data);
 }
 
-const loginValidation = data => {
+exports.loginValidation = data => {
     // Schema for login validation
     const schema = Joi.object({
         email: Joi.string()
@@ -34,6 +37,3 @@ const loginValidation = data => {
     // Validation
     return schema.validate(data);
 }
-
-exports.registerValidation = registerValidation;
-exports.loginValidation = loginValidation;

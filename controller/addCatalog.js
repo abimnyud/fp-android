@@ -18,15 +18,17 @@ const uploadCatalog = async (req, res) => {
         msg: 'Harga/stok harus berupa angka'
     });
     
-    const upload = await new Catalog({
+    const newCatalog = await new Catalog({
         jenisPakaian,
         bahanPakaian,
         harga,
         stok,
+        createdAt: Date.now(),
+        updatedAt: Date.now()
     });
     
     try {
-        await upload.save()
+        await newCatalog.save()
         res.status(201).json({ 
             success: true,
             msg: `Katalog ${jenisPakaian} berhasil ditambahkan` 

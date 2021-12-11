@@ -5,14 +5,14 @@ const deleteAdmin = async (req, res) => {
     const accountCheck = await Admin.findOne({ id });
     if(!accountCheck ) return res.status(404).json({ 
         success: false, 
-        msg: `Akun dengan id ${id} tidak ada`
+        msg: `Admin dengan id ${id} tidak ada`
     });
 
     try {
         const admin = await Admin.findOneAndDelete({ id });
         return res.status(200).json({
             success: true,
-            msg: `Akun ${admin.name} dengan id ${admin.id} berhasil dihapus`
+            msg: `Admin ${admin.name} dengan id ${admin.id} berhasil dihapus`
         });
         
     } catch (error) {

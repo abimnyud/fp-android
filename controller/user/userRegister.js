@@ -6,12 +6,15 @@ const { registerValidation } = require('./../validation');
 const register = async (req, res) => {
     // Validate
     const { error } = registerValidation(req.body);
-    if (error) return res.status(400).send(error.details[0].message);
+    if (error) return res.status(400).json({success: false, msg: error.details[0].message});
     const { name, email, password } = req.body;
 
     // Check if user already exists
     const emailExist = await User.findOne({ email });
-    if (emailExist) return res.status(400).send('Email already exists');
+    if (emailExist) return res.status(400).json({
+        success: false,
+        msg: 'Email sudah digunakan'
+    });
 
     // Hash password
     const salt = await bcrypt.genSalt(10);
@@ -19,7 +22,7 @@ const register = async (req, res) => {
 
 
     // Create a new user
-    const user = new User({
+    const user = await new User({
         name,
         email,
         password: hashedPassword
@@ -27,9 +30,15 @@ const register = async (req, res) => {
 
     try {
         await user.save();
-        res.send({ user_id:user._id, created: true});
+        res.json({ 
+            success: true, 
+            user_id:user._id
+        });
     } catch (err) {
-        res.status(400).send(err);
+        res.status(400).json({
+            success: false,
+            msg: err
+        });
     }
 };
 

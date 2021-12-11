@@ -6,7 +6,7 @@ const showCatalog = async (req, res) => {
 
     if (!catalogCheck) return res.status(404).json({
         success: false,
-        msg: `Tidak ada produk ${jenisPakaian} di database ini!`
+        msg: `Tidak ada produk ${jenisPakaian} di database!`
     })
 
     try {

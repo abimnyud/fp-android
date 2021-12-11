@@ -1,26 +1,33 @@
+const { date } = require('joi');
 const Catalog = require('../models/catalog');
 
 const updateCatalog = async (req, res) => {
-    const { jenisPakaian, bahanPakaian, harga, stok } = req.body;
-    const { hargaBaru, stokBaru } = req.query;
+    const { id } = req.body;
+    const { jenisBaru, bahanBaru, hargaBaru, stokBaru } = req.query;
     
-    if (!jenisPakaian || !bahanPakaian || !harga || !stok) return res.status(400).json({
+    if (!id) return res.status(400).json({
         success: false,
-        msg: 'Semua field harus diisi!'
+        msg: 'Field id harus diisi!'
     });
 
     
     try {
-        const newCatalog = await Catalog.findOneAndUpdate({ jenisPakaian }, { harga: hargaBaru, stok: stokBaru }, { new: true });
+        const newCatalog = await Catalog.findOneAndUpdate({ _id: id }, { 
+            jenisPakaian: jenisBaru, 
+            bahanPakaian: bahanBaru, 
+            harga: hargaBaru, 
+            stok: stokBaru, 
+            updatedAt: Date.now() 
+        }, { new: true });
+
         if(!newCatalog) return res.status(404).json({
             success: false,
-            msg: `Produk ${jenisPakaian} tidak ada`
+            msg: `Produk dengan ${id} tidak ada`
         });
         
         return res.status(200).json({
             success: true,
-            msg: `Produk ${jenisPakaian} berhasil diupdate`,
-            data: newCatalog
+            msg: `Produk dengan id ${newCatalog._id} berhasil diupdate`
         });
     } catch (error) {
         return res.status(400).json({

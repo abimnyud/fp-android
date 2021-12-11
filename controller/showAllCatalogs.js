@@ -15,7 +15,7 @@ const showAllCatalogs = async (req, res) => {
     } catch (err) {
         return res.status(400).json({
             success: false,
-            msg: `Database error, silakan periksa! ${err.message}`
+            msg: `Database error, silakan periksa database! ${err.message}`
         });
         
     }

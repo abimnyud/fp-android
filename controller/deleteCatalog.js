@@ -1,18 +1,18 @@
 const Catalog = require('../models/catalog');
 
 const deleteCatalog = async (req, res) => {
-    const { jenisPakaian, bahanPakaian } = req.query;
-    const catalogCheck = await Catalog.findOne({ jenisPakaian, bahanPakaian});
+    const { id } = req.query;
+    const catalogCheck = await Catalog.findOne({ _id: id});
     if(!catalogCheck) return res.status(400).json({ 
         success: false, 
-        msg: `Produk ${jenisPakaian} dengan bahan ${bahanPakaian} tidak ada`
+        msg: `Produk dengan id ${id} tidak ditemukan`
     });
 
     try {
-        await Catalog.findOneAndDelete({ jenisPakaian, bahanPakaian });
+        await Catalog.findOneAndDelete({ _id: id });
         return res.status(200).json({
             success: true,
-            msg: `Produk ${jenisPakaian} dengan bahan ${bahanPakaian} berhasil dihapus`
+            msg: `Produk dengan id ${id} berhasil dihapus`
         });
         
     } catch (error) {

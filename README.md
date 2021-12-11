@@ -31,5 +31,22 @@ BODY
 ```
 AND PARAMS
 ```
+hargaBaru:200000
 stokBaru:50
+```
+### LOGIN ADMIN (BODY)
+```
+{
+    "email": "admin1@abimanyu.co",
+    "password": "admin123456"
+}
+
+```
+### USER REGISTER (BODY)
+```
+{
+    "name": "Nama Lengkap",
+    "email": "user@abimanyu.co",
+    "password": "user123456"
+}
 ```
