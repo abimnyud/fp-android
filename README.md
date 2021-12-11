@@ -14,12 +14,12 @@
     "stok": 100
 }
 ```
-### DELETE CATALOG (PARAMS)
+### DELETE CATALOG (QUERY)
 ```
 jenisPakaian:Kemeja
 bahanPakaian:Flanel
 ```
-### UPDATE CATALOG (BODY & PARAMS)
+### UPDATE CATALOG (BODY & QUERY)
 BODY
 ```
 {
@@ -34,6 +34,7 @@ and PARAMS
 hargaBaru:200000
 stokBaru:50
 ```
+##  AUTHENTICATION EXAMPLE
 ### REGISTER ADMIN (BODY)
 Needs .env ADMIN_TOKEN
 ```
