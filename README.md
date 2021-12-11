@@ -29,7 +29,7 @@ BODY
     "stok": 100
 }
 ```
-and PARAMS
+and QUERY
 ```
 hargaBaru:200000
 stokBaru:50
