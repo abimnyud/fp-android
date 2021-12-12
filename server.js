@@ -11,8 +11,8 @@ mongoose.connect(process.env.MONGODB_URI)
     .catch((err) => console.log(`DB Connection Error : ${err.message}`));
 
 // CATALOGS ROUTES
-const catalogsRoutes = require('./routes/catalogsRoutes');
-app.use('/api', catalogsRoutes);
+const catalogsRoutes = require('./routes/catalogs');
+app.use('/catalogs', catalogsRoutes);
 
 // AUTH ROUTES
 const auth = require('./routes/auth');

@@ -1,7 +1,7 @@
 const Catalog = require('../models/catalog');
 
 const deleteCatalog = async (req, res) => {
-    const { id } = req.query;
+    const { id } = req.params;
     const catalogCheck = await Catalog.findOne({ _id: id});
     if(!catalogCheck) return res.status(400).json({ 
         success: false, 

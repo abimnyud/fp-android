@@ -32,7 +32,7 @@ stokBaru:50
 ```
 ##  AUTHENTICATION EXAMPLE
 ### REGISTER ADMIN (BODY)
-Needs .env ADMIN_TOKEN
+Needs random ADMIN_TOKEN and USER_TOKEN in .env
 ```
 {
     "name": "Admin Pertama",
